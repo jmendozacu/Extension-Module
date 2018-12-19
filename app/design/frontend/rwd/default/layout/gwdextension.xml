@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<layout>
+    <gwd_extension_index_index>
+        <reference name="content">
+            <block type="core/template" template="gwdextension/index.phtml" />
+        </reference>
+    </gwd_extension_index_index>
+</layout>
