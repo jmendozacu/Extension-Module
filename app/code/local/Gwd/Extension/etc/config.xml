@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Gwd_Extension>
-            <version>0.0.2</version>
+            <version>0.0.1</version>
         </Gwd_Extension>
     </modules>
     <frontend>
@@ -30,7 +30,7 @@
                 <resourceModel>gwdextension_resource</resourceModel>
             </gwdextension>
             <gwdextension_resource>
-                <class>Gwd_Extension_Resource</class>
+                <class>Gwd_Extension_Model_Resource</class>
                 <entities>
                     <table_extension>
                         <table>gwd_extension_entities</table>
