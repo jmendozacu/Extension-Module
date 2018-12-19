@@ -24,6 +24,14 @@
         </layout>
     </frontend>
     <global>
+
+        <blocks>
+            <gwdextension>
+                <class>Gwd_Extension_Block</class>
+            </gwdextension>
+        </blocks>
+
+
         <models>
             <gwdextension>
                 <class>Gwd_Extension_Model</class>

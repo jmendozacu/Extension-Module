@@ -2,7 +2,7 @@
 <layout>
     <gwd_extension_index_index>
         <reference name="content">
-            <block type="core/template" template="gwdextension/index.phtml" />
+            <block type="gwdextension/extension" template="gwdextension/index.phtml" />
         </reference>
     </gwd_extension_index_index>
 </layout>
