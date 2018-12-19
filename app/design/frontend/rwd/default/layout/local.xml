@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!--<default>-->
+        <!--<reference name="top.links">-->
+            <!--<action method="addLink" translate="label title" module="catalog"><label>My Account</label><url helper="customer/getAccountUrl" /><title>My Account2</title></action>-->
+        <!--</reference>-->
+        <!--&lt;!&ndash; Put this in your layout/local.xml &ndash;&gt;-->
+
+        <!--<reference name="header">-->
+            <!--<action method="unsetChild"><name>top.menu</name></action>-->
+        <!--</reference>-->
+
+        <!--<reference name="left">-->
+            <!--<action method="insert"><child>top.menu</child></action>-->
+        <!--</reference>-->
+    <!--</default>-->
+</layout>

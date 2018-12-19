@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <gwstudent_index_index>
+        <reference name="content">
+            <!--gwstudent/student = Gw_Student_Block_Student-->
+            <block type="gwstudent/student" template="gwstudent/index.phtml" />
+        </reference>
+    </gwstudent_index_index>
+    <gwstudent_index_view>
+        <reference name="content">
+            <block type="gwstudent/view" name="student.content" template="gwstudent/view.phtml" />
+        </reference>
+    </gwstudent_index_view>
+</layout>
+
+
+

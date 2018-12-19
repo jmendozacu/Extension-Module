@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>css/slick.css</name><params/></action>
+            <action method="addItem"><type>skin_css</type><name>css/slick-theme.css</name><params/></action>
+            <action method="addItem"><type>skin_js</type><name>js/slick.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>js/my_js.js</name></action>
+        </reference>
+    </default>
+    <gwbanner_index_view>
+        <reference name="content">
+            <block type="gwbanner/view" name="gwbanner.content" template="gwbanner/view.phtml" />
+        </reference>
+    </gwbanner_index_view>
+</layout>
+

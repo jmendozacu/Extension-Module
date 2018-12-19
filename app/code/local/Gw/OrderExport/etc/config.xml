@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Gw_OrderExport>
+            <version>0.1.0</version>
+        </Gw_OrderExport>
+    </modules>
+
+    <frontend>
+        <layout>
+            <updates>
+                <gworderexport>
+                    <file>gw_orderexport.xml</file>
+                </gworderexport>
+            </updates>
+        </layout>
+
+        <routers>
+            <gworderexport>
+                <use>standard</use>
+                <args>
+                    <module>Gw_OrderExport</module>
+                    <frontName>t</frontName>
+                </args>
+            </gworderexport>
+        </routers>
+    </frontend>
+
+
+    <global>
+
+        <blocks>
+            <gworderexport>
+                <class>Gw_OrderExport_Block</class>
+            </gworderexport>
+        </blocks>
+
+        <models>
+            <gw_orderexport>
+                <class>Gw_OrderExport_Model</class>
+            </gw_orderexport>
+        </models>
+        <events>
+            <sales_order_place_after>
+                <observers>
+                    <sendOrderEmails>
+                        <class>Gw_OrderExport_Model_Observer</class>
+                        <method>sendOrderEmails</method>
+                        <type>singleton</type>
+                    </sendOrderEmails>
+                </observers>
+            </sales_order_place_after>
+        </events>
+
+        <template>
+            <email>
+                <custom_order_tpl module="Gw_OrderExport">
+                    <label>Status Mail Invoice</label>
+                    <file>email_processing.html</file>
+                    <type>html</type>
+                </custom_order_tpl>
+            </email>
+        </template>
+
+    </global>
+</config>

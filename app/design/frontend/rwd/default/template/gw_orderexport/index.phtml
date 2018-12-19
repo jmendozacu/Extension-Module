@@ -1,0 +1,149 @@
+<meta charset="UTF-8">
+<style type="text/css">
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .slider {
+        width: 50%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+        margin: 0px 20px;
+    }
+
+    .slick-slide img {
+        width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+
+    .slick-slide {
+        transition: all ease-in-out .3s;
+        opacity: .2;
+    }
+
+    .slick-active {
+        opacity: .5;
+    }
+
+    .slick-current {
+        opacity: 1;
+    }
+</style>
+
+<?php
+
+try {
+    $_productCollection = Mage::getModel('catalog/product')
+        ->getCollection()
+        ->addAttributeToSort('created_at', 'DESC')
+        ->addAttributeToSelect('*')
+        ->addAttributeToFilter('display_on_homepage', 1)    ;
+} catch (Exception $e) {
+    echo '<pre>';
+    var_dump($e->getMessage());
+    echo '</pre>';
+    die;
+}
+?>
+<section class="regular slider">
+    <?php foreach ($_productCollection as $product):?>
+        <div>
+            <img data-attr="123" src="http://placehold.it/350x300?text=<?php echo $product->getId(); ?>">
+            <a href="<?php echo $product->getProductUrl() ?>"><?php echo $product->getName()?></a>
+
+        </div>  <?php endforeach; ?>
+
+</section>
+
+<style>
+    button{
+        background-color: teal;
+        height:100px;
+        width:150px;
+    }
+</style>
+
+<script type="text/javascript">
+    jQuery( document ).ready(function($) {
+        console.log('firsttest');
+        $(".regular").slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+        });
+
+        $('#place').on('change', function() {
+            var value1 = (this).value;
+            // var texterror = 'There are some error while getting price of product with id #123';
+            console.log(value1);
+            $.ajax({
+                url:"<?php echo Mage::getUrl('t/index/ajax');?>",
+                type: "POST",
+                data: {value:value1},
+                success: function(data) {
+                    console.log(data);
+                    $('#result').html(data);},
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.log(9889);
+                    console.log(jqXHR);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+                // dataType: dataType
+            });
+        });
+
+        $("#button2").click(function () {
+            $(this).css("background-color", "#003eff");
+            $.ajax({
+                url:"<?php echo Mage::getUrl('t/index/index');?>",
+                type: "POST",
+                // data: data,
+                // success: success,
+                // dataType: dataType
+            });
+        });
+
+
+
+    });
+</script>
+    <h2>Activate debugging with F12</h2>
+
+    <p>Select "Console" in the debugger menu. Then click Run again.</p>
+
+    <a id="1">show message in console</a><br>
+
+    <button id="button1" value="test1">Press1</button>
+    <button id="button2" value="test2">Press2</button>
+<?php
+/** @var var  $productcoll */
+$productcoll = $this->getOrderExportCollection();
+?>
+<div id="example">
+    <p>
+        <select class="select-class" id="place">
+            <option value="">Select</option>
+            <?php foreach ($productcoll as $product) : ?>
+                <option value="<?php echo $product->getId(); ?>" ><?php echo $product->getName()?></option>
+            <?php endforeach; ?>
+            <option value="<?php echo '13333' ?>" >111</option>
+        </select>
+    </p>
+</div><br>
+<div id="result">
+<!--    <h1>Price: </h1>-->
+</div>

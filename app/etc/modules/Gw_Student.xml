@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Gw_Student>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Gw_Student>
+    </modules>
+</config>

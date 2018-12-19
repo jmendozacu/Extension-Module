@@ -1,0 +1,19 @@
+<?php
+
+/** @var Gw_Student_Block_Student $this */
+$students = $this->getStudentCollection();
+$ViewUrl = Mage::getUrl('student/index/view');
+
+?>
+
+
+        <h1>Students</h1>
+        <?php foreach ($students as $item): ?>
+        <h2>
+            <a href="<?php echo $ViewUrl; ?>?id=<?php echo $item->getId(); ?>">
+                <?php echo $item->getFirstName(); ?>
+            </a>
+        </h2>
+    <?php endforeach; ?>
+
+

@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<config>
+    <modules>
+        <Gw_Banner>
+            <version>0.0.1</version>
+        </Gw_Banner>
+    </modules>
+    <frontend>
+
+        <layout>
+            <updates>
+                <gwbanner>
+                    <file>gw_banner.xml</file>
+                </gwbanner>
+            </updates>
+        </layout>
+
+        <routers>
+            <gwbanner>
+                <use>standard</use>
+                <args>
+                    <module>Gw_Banner</module>
+                    <frontName>w</frontName>
+                </args>
+            </gwbanner>
+        </routers>
+    </frontend>
+    <global>
+
+        <blocks>
+            <gwbanner>
+                <class>Gw_Banner_Block</class>
+            </gwbanner>
+        </blocks>
+        <resources>
+            <add_category_attribute>
+                <setup>
+                    <module>Gw_Banner</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </add_category_attribute>
+            <add_category_attribute_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </add_category_attribute_write>
+            <add_category_attribute_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </add_category_attribute_read>
+        </resources>
+
+    </global>
+    <!--<default>-->
+        <!--<tab1>-->
+            <!--<general>-->
+                <!--<text_field>Default value</text_field>-->
+                <!--<textarea></textarea>-->
+                <!--<dropdown>key2</dropdown>-->
+                <!--<multiple_dropdown>key1,key2</multiple_dropdown>-->
+                <!--<time>11,30,45</time>-->
+                <!--<active>0</active>-->
+                <!--<boolean>1</boolean>-->
+                <!--<dependant_text_field>Default value</dependant_text_field>-->
+            <!--</general>-->
+        <!--</tab1>-->
+    <!--</default>-->
+</config>
