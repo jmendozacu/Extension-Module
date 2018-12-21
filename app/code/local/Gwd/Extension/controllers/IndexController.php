@@ -7,6 +7,7 @@ class Gwd_Extension_IndexController extends Mage_Core_Controller_Front_Action
     {
         $this->loadLayout();
         $this->renderLayout();
+        echo 'dev';
     }
 
 }

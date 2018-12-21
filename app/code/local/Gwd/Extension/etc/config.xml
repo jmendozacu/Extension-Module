@@ -2,10 +2,12 @@
 <config>
     <modules>
         <Gwd_Extension>
-            <version>0.0.1</version>
+            <version>0.0.2</version>
         </Gwd_Extension>
     </modules>
+
     <frontend>
+
         <routers>
             <Gwd_Extension>
                 <use>standard</use>
@@ -15,6 +17,7 @@
                 </args>
             </Gwd_Extension>
         </routers>
+
         <layout>
             <updates>
                 <gwdExtension>
@@ -22,7 +25,11 @@
                 </gwdExtension>
             </updates>
         </layout>
+
     </frontend>
+
+
+
     <global>
 
         <blocks>
@@ -46,16 +53,19 @@
                 </entities>
             </gwdextension_resource>
         </models>
+
         <helpers>
             <Gwd_Extension>
                 <class>Gwd_Extension_Helper</class>
             </Gwd_Extension>
         </helpers>
+
         <blocks>
             <Gwd_Extension>
                 <class>Gwd_Extension_Block</class>
             </Gwd_Extension>
         </blocks>
+
         <resources>
             <Gwd_Extension_setup>
                 <setup>
@@ -63,5 +73,6 @@
                 </setup>
             </Gwd_Extension_setup>
         </resources>
+
     </global>
 </config>

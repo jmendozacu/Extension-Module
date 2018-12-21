@@ -1,20 +1,27 @@
+
+<style type="text/css">
+        img {
+            width: 200px;
+            height: 200px;
+        }
+        .list {
+            display:inline-block;
+        }
+</style>
+
+
 <?php
 $collection = $this->getExtensionCollection();
-
-//        echo '<pre>';
-//        var_dump($collection);
-//        echo '</pre>';
-//        die;
-
-echo 'test';
 ?>
-<h1>Template ds_news/index.phtml</h1>
 
-<?php
-foreach ($collection as $value){
-    echo '<h1>'.$value->getTitle().'</h1>>';}
-
-
+<?php foreach ($collection as $value):?>
+<div class="list">
+    <>
+    <div class="title"> <?php echo $value->getTitle()?></div>
+        <img id="test" src="<?php echo $value->getImage();?>"><br>
+    <div class="description"><?php echo $value->getShortDescription()?></div>
+</div>
+<?php endforeach;?>
 
 
 
