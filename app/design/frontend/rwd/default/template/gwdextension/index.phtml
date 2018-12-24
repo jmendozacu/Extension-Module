@@ -1,30 +1,93 @@
 
 <style type="text/css">
         img {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
         }
         .list {
             display:inline-block;
+            width: 200px;
+            height: 200px;
         }
+
+        .body {
+
+        }
+
+        .title {
+            text-align: center;
+            color: #8d0005;
+        }
+        #image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .description {
+            text-align: center;
+            color: #0A246A;
+        }
+        button {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .header {
+            text-align: center;
+
+        }
+
 </style>
 
 
 <?php
 $collection = $this->getExtensionCollection();
+$qty =  $this->getExtensionCollection()->count();
+$limit = 5;
+$collection->setPageSize($limit);
+
+
 ?>
 
-<?php foreach ($collection as $value):?>
+<div class="body">
+    <h2 class="header"><b> Total quantity <?php echo $qty;?></b></h2>
+    <?php foreach ($collection as $value):?>
 <div class="list">
-    <>
+
     <div class="title"> <?php echo $value->getTitle()?></div>
-        <img id="test" src="<?php echo $value->getImage();?>"><br>
+        <img id="image" src="<?php echo $value->getImage();?>"><br>
     <div class="description"><?php echo $value->getShortDescription()?></div>
+
 </div>
+
 <?php endforeach;?>
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".button").click(function(){
+            var value1 = (this).value;
+            // var texterror = 'There are some error while getting price of product with id #123';
+            console.log(value1);
+            $.ajax({
+                    url:"<?php echo Mage::getUrl('extension/index/ajax');?>",
+                    type: "POST",
+                    data: {
+                        ajaxvalue:value1
+                    },
+                    dataType:'json',
+                    success: function() {
+                        alert('ok');
 
+                    }
+                }
+            );
+        });
+    });
+</script>
 
-
-
+<br>
+<button class="button" value="more">Click me</button>
 
